@@ -43,19 +43,28 @@ function setupScrollHeader() {
     });
 }
 
-// Fungsi buat kasih class 'active' ke menu yang sesuai dengan halaman sekarang
-function highlightActiveMenu() {
-    let currentPage = window.location.pathname.split("/").pop(); // Ambil nama file halaman
-    let navLinks = document.querySelectorAll("nav a"); // Ambil semua link di navbar
-
-    navLinks.forEach(link => {
-        let linkHref = link.getAttribute("href");
-
-        // Kalau href link cocok sama halaman sekarang, kasih class 'active'
-        if (currentPage === linkHref) {
-            link.classList.add("active");
-        } else {
-            link.classList.remove("active");
-        }
-    });
+//fungsi hamburger
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active'); // Toggle class 'active' untuk menampilkan/menyembunyikan menu
 }
+
+// Menutup menu ketika salah satu item diklik
+const menuItems = document.querySelectorAll('nav a');
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const menu = document.getElementById('menu');
+        menu.classList.remove('active'); // Menghapus class 'active' supaya menu hilang
+    });
+});
+
+// Menutup menu ketika klik di luar area menu atau hamburger
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById('menu');
+    const hamburger = document.querySelector('.hamburger');
+
+    // Cek apakah klik terjadi di luar area menu atau hamburger
+    if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+        menu.classList.remove('active'); // Menutup menu jika klik di luar area
+    }
+});
