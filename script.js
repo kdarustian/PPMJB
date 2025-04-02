@@ -21,8 +21,9 @@ function loadComponent(file, containerId, callback = null) {
 
 // Fungsi buat efek scroll pada header
 function setupScrollHeader() {
-    let lastScrollTop = 0;
-    const header = document.getElementById("header");
+    let lastScrollTop = 0; // Posisi scroll sebelumnya
+    let timeout; // Variabel untuk setTimeout
+    const header = document.getElementById("header-container");
 
     if (!header) return; // Pastikan header ada sebelum eksekusi
 
@@ -30,20 +31,29 @@ function setupScrollHeader() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
         if (scrollTop > lastScrollTop) {
-            // Scroll ke bawah, header sembunyi
-            header.style.top = "-80px";
+            // Scroll ke bawah, sembunyikan header
+            header.style.transition = "top 0.3s ease"; // Animasi smooth
+            header.style.top = "-80px"; // Header sembunyi
+
+            // Batalkan timeout sebelumnya, kalau ada
+            clearTimeout(timeout);
+
+            // Set timeout untuk menampilkan header kembali setelah 2 detik
+            timeout = setTimeout(() => {
+                header.style.top = "0"; // Header muncul kembali
+            }, 2000); // Delay 2 detik (2000 ms)
         } else {
-            // Scroll ke atas, header muncul lagi dengan delay
-            setTimeout(() => {
-                header.style.top = "0";
-            }, 200); // Delay 200ms biar smooth
+            // Scroll ke atas, langsung muncul header
+            clearTimeout(timeout); // Hapus timeout jika scroll ke atas sebelum delay
+            header.style.transition = "top 0.3s ease"; // Animasi smooth
+            header.style.top = "0"; // Header muncul
         }
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Fix untuk scroll ke atas
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Memastikan scrollTop tidak negatif
     });
 }
 
-//fungsi hamburger
+// Fungsi hamburger untuk menu
 function toggleMenu() {
     const menu = document.getElementById('menu');
     menu.classList.toggle('active'); // Toggle class 'active' untuk menampilkan/menyembunyikan menu

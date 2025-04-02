@@ -34,6 +34,7 @@ nav {
     display: flex; /* Mengaktifkan Flexbox agar item di dalam <nav> sejajar dalam satu baris */
     gap: 15px; /* Jarak antar elemen di dalam <nav> sebesar 15px */
     margin-right: 40px; /* Memberikan jarak ke kanan sebesar 40px */
+    margin-left: auto; /* supaya nav rata kanan */
 }
 
 nav a {
@@ -115,10 +116,172 @@ nav a.active {
     }
 }
 
-/*container*/
+/* container */
 .container {
     max-width: 100%;
     margin: auto;
     padding: 20px;
     margin-top: 80px;
+}
+
+/* body */
+html, body {
+    height: 100%; /* Pastikan body memenuhi tinggi viewport */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1; /* Dorong footer ke bawah */
+}
+
+/* Footer Styling */
+footer {
+    background: white; /* Warna background footer */
+    color: black; /* Warna teks hitam */
+    text-align: center; /* Posisikan teks di tengah */
+    font-size: 14px; /* Ukuran teks */
+    display: flex; /* Pakai flexbox agar isi footer sejajar */
+    justify-content: center;  /* Posisikan teks di tengah */
+    align-items: center;      /* Posisikan konten footer di tengah vertikal */
+    position: relative;
+    padding: 5px
+}
+
+/* Mengatur teks agar tetap di tengah */
+.footer-content {
+    display: flex; /* Aktifkan flexbox buat sejajarin elemen */
+    justify-content: center;  /* Posisikan teks di tengah */
+    align-items: center;      /* Posisikan elemen di tengah vertikal */
+    gap: 15px;                /* Jarak antara teks & logo */
+}
+
+/* Mengatur ukuran logo dan posisinya di kanan */
+.footer-logo {
+    height: 30px; /* Tinggi logo agar proporsional */
+    position: absolute;
+    right: 20px; /* Posisikan logo ke paling kanan */
+}
+
+/* Media Query untuk layar kecil */
+@media (max-width: 600px) {
+    .footer-content p {
+        display: none; /* Sembunyikan teks saat layar kecil */
+    }
+
+    .footer-logo {
+        height: 30px; /* Pastikan ukuran logo tetap terlihat jelas */
+        position: static; /* Reset posisi di layar kecil */
+    }
+}
+
+/* Test box content */
+.text-box {
+    display: flex; /* Menggunakan flexbox untuk menata gambar dan teks */
+    align-items: flex-start; /* Menjaga gambar dan teks tetap sejajar di atas */
+    gap: 20px; /* Jarak antara gambar dan teks */
+    width: 80%; /* Biar lebar konten nggak terlalu penuh */
+    margin: 100px auto 0; /* Tengahin konten */
+    padding: 20px; /* Jarak dari pinggir */
+    background-color: #f9f9f9; /* Warna latar belakang */
+    border-radius: 8px; /* Sudut melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan biar lebih cantik */
+    text-align: justify; /* Membuat teks dalam .text-box rata kiri */
+}
+
+.text-box img {
+    padding: 30px;
+    width: 350px; /* Atur lebar gambar sesuai kebutuhan */
+    height: auto; /* Menjaga rasio gambar */
+    object-fit: cover; /* Menjaga gambar tidak terdistorsi */
+}
+
+.text-content {
+    flex: 1; /* Biar teks mengisi sisa ruang */
+}
+
+/* Responsive design: jika layar lebih kecil dari 768px (tablet ke bawah) */
+@media screen and (max-width: 768px) {
+    .text-box {
+        flex-direction: column; /* Gambar dan teks ditata vertikal */
+        align-items: center; /* Teks dan gambar sejajar tengah */
+        padding: 10px; /* Mengurangi padding untuk layar kecil */
+    }
+
+    .text-box img {
+        width: 100%; /* Gambar jadi memenuhi lebar container */
+        max-width: 300px; /* Batas maksimal lebar gambar */
+        height: auto; /* Menjaga rasio gambar */
+    }
+
+    .text-content {
+        font-size: 14px; /* Mengurangi ukuran font pada layar kecil */
+    }
+
+    .text-box h2 {
+        font-size: 18px; /* Menyesuaikan ukuran heading */
+    }
+}
+
+/* Responsive design: jika layar lebih kecil dari 480px (smartphone ke bawah) */
+@media screen and (max-width: 480px) {
+    .text-box img {
+        width: 80%; /* Gambar jadi lebih kecil di layar kecil */
+        max-width: 250px;
+    }
+
+    .text-content {
+        font-size: 12px; /* Mengurangi ukuran font lebih kecil */
+    }
+
+    .text-box h2 {
+        font-size: 16px; /* Menyesuaikan ukuran heading */
+    }
+}
+
+/* Widget Container seksi kerja */
+.widget-container {
+    margin-top: 20px;
+    display: flex;
+    background-color: #f4f4f4;
+    justify-content: center; /* Widget di tengah */
+    gap: 20px; /* Jarak antar widget */
+    padding: 20px;
+    flex-wrap: wrap; /* Memungkinkan widget untuk turun ke baris berikutnya */
+}
+
+.widget {
+    width: 300px; /* Ukuran tetap biar rapi */
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan biar lebih cantik */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.widget img {
+    width: 150px; /* Ukuran gambar */
+    height: auto;
+    margin-bottom: -20px;
+}
+
+.widget p {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.6;
+}
+
+/* Media Query untuk layar kecil */
+@media (max-width: 768px) {
+    .widget-container {
+        flex-direction: column; /* Ketika layar kecil, widget berjejer secara vertikal */
+        align-items: center; /* Tengahin widget agar lebih rapi */
+    }
+
+    .widget {
+        width: 80%; /* Lebar widget disesuaikan, misalnya 80% dari layar */
+        margin-bottom: 20px; /* Jarak antar widget vertikal */
+    }
 }
