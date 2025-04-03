@@ -7,6 +7,26 @@ body{
     background-color: #f4f4f4;
 }
 
+/* judul tulisan pakai el-messiri */
+h2 {
+    font-family: 'El Messiri', sans-serif;  /* Ganti font ke El Messiri */
+    font-weight: 700;  /* Bikin font tebal, bisa disesuaikan */
+}
+
+h1 {
+    font-family: 'El Messiri', sans-serif;  /* Ganti font ke El Messiri */
+    font-weight: 700;  /* Bikin font tebal, bisa disesuaikan */
+}
+
+/* judul halaman web */
+.judul-halaman {
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    font-family: 'El Messiri', sans-serif;
+    font-weight: 700;
+}
+
 /*header*/
 header {
     background-color: white; /* Warna latar belakang putih */
@@ -135,6 +155,7 @@ html, body {
 
 main {
     flex-grow: 1; /* Dorong footer ke bawah */
+    padding-top: 80px;
 }
 
 /* Footer Styling */
@@ -182,8 +203,8 @@ footer {
     display: flex; /* Menggunakan flexbox untuk menata gambar dan teks */
     align-items: flex-start; /* Menjaga gambar dan teks tetap sejajar di atas */
     gap: 20px; /* Jarak antara gambar dan teks */
-    width: 80%; /* Biar lebar konten nggak terlalu penuh */
-    margin: 100px auto 0; /* Tengahin konten */
+    width: 90%; /* Biar lebar konten nggak terlalu penuh */
+    margin: 20px auto 0; /* Tengahin konten */
     padding: 20px; /* Jarak dari pinggir */
     background-color: #f9f9f9; /* Warna latar belakang */
     border-radius: 8px; /* Sudut melengkung */
@@ -207,7 +228,8 @@ footer {
     .text-box {
         flex-direction: column; /* Gambar dan teks ditata vertikal */
         align-items: center; /* Teks dan gambar sejajar tengah */
-        padding: 10px; /* Mengurangi padding untuk layar kecil */
+        padding: 20px; /* Mengurangi padding untuk layar kecil */
+        width: 75%;
     }
 
     .text-box img {
@@ -221,7 +243,7 @@ footer {
     }
 
     .text-box h2 {
-        font-size: 18px; /* Menyesuaikan ukuran heading */
+        font-size: 25px; /* Menyesuaikan ukuran heading */
     }
 }
 
@@ -285,3 +307,43 @@ footer {
         margin-bottom: 20px; /* Jarak antar widget vertikal */
     }
 }
+
+/* preview blog untuk konten */
+.preview {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.preview img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+
+}
+
+.read-more {
+    color: #007bff;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: normal;
+    transition: color 0.2s ease-in-out;
+}
+
+.read-more:hover {
+    color: black;
+}
+
+/* Panah dipisah biar bisa gerak sendiri */
+.arrow {
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Pas hover, panah geser ke kanan */
+.read-more:hover .arrow {
+    transform: translateX(5px);
+}
+
