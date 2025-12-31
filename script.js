@@ -78,3 +78,15 @@ document.addEventListener('click', function(event) {
         menu.classList.remove('active'); // Menutup menu jika klik di luar area
     }
 });
+
+// fungsi copy rekening
+  document.querySelector(".btn-copy").addEventListener("click", function () {
+    const rekening = "7301711365";
+
+    navigator.clipboard.writeText(rekening).then(() => {
+      alert("Nomor rekening berhasil disalin: " + rekening);
+    }).catch(err => {
+      console.error("Gagal copy:", err);
+    });
+  });
+

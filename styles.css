@@ -11,6 +11,7 @@ body{
 h2 {
     font-family: 'El Messiri', sans-serif;  /* Ganti font ke El Messiri */
     font-weight: 700;  /* Bikin font tebal, bisa disesuaikan */
+    color: black;
 }
 
 h1 {
@@ -18,13 +19,27 @@ h1 {
     font-weight: 700;  /* Bikin font tebal, bisa disesuaikan */
 }
 
+p {
+    color: #333;
+}
+
 /* judul halaman web */
 .judul-halaman {
     text-align: left;
     margin-left: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     font-family: 'El Messiri', sans-serif;
     font-weight: 700;
+    color: #1a2a75;
+}
+
+.judul-halaman-tengah {
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-family: 'El Messiri', sans-serif;
+    font-weight: 700;
+    color: #1a2a75;
 }
 
 /*header*/
@@ -60,7 +75,7 @@ nav {
 nav a {
     color: black; /* Warna teks hitam */
     text-decoration: none; /* Menghilangkan garis bawah pada link */
-    font-size: 16px; /* Ukuran teks 16px */
+    font-size: 18px; /* Ukuran teks 16px */
     font-weight: 500; /* Ketebalan teks (sedang) */
     padding: 8px 15px; /* Ruang dalam: atas-bawah 8px, kiri-kanan 15px */
     transition: 0.3s; /* Efek transisi selama 0.3 detik (misal untuk hover) */
@@ -198,14 +213,14 @@ footer {
     }
 }
 
-/* Test box content */
+/* Text box content */
 .text-box {
     display: flex; /* Menggunakan flexbox untuk menata gambar dan teks */
     align-items: flex-start; /* Menjaga gambar dan teks tetap sejajar di atas */
-    gap: 20px; /* Jarak antara gambar dan teks */
+    gap: 40px; /* Jarak antara gambar dan teks */
     width: 90%; /* Biar lebar konten nggak terlalu penuh */
-    margin: 20px auto 0; /* Tengahin konten */
-    padding: 20px; /* Jarak dari pinggir */
+    margin: 20px auto 20px; /* Tengahin konten */
+    padding: 10px 40px; /* Jarak dari pinggir */
     background-color: #f9f9f9; /* Warna latar belakang */
     border-radius: 8px; /* Sudut melengkung */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan biar lebih cantik */
@@ -213,7 +228,7 @@ footer {
 }
 
 .text-box img {
-    padding: 30px;
+    padding: 80px 10px;
     width: 350px; /* Atur lebar gambar sesuai kebutuhan */
     height: auto; /* Menjaga rasio gambar */
     object-fit: cover; /* Menjaga gambar tidak terdistorsi */
@@ -265,7 +280,7 @@ footer {
 
 /* Widget Container seksi kerja */
 .widget-container {
-    margin-top: 20px;
+    margin-top: -20px;
     display: flex;
     background-color: #f4f4f4;
     justify-content: center; /* Widget di tengah */
@@ -310,26 +325,44 @@ footer {
 
 /* preview blog untuk konten */
 .preview {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
     border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px 0;
-    text-align: center;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    text-align: left; /* penting: jangan center */
 }
 
+/* bagian teks */
+.preview-text {
+    flex: 1;
+}
+
+/* gambar */
 .preview img {
+    width: 320px;        /* kontrol ukuran */
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-
+    object-fit: cover;
 }
 
+/* link */
 .read-more {
     color: #007bff;
     text-decoration: none;
     display: inline-block;
-    margin-top: 5px;
-    font-weight: normal;
+    margin-top: 8px;
+    font-weight: 500;
     transition: color 0.2s ease-in-out;
+}
+
+.read-more:hover {
+    color: #0056b3;
 }
 
 .read-more:hover {
@@ -347,3 +380,348 @@ footer {
     transform: translateX(5px);
 }
 
+/* === ZISWAF SECTION === */
+.text-box-ziswaf {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    width: 90%;
+    margin: -50px 20px 20px 40px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: justify;
+    flex-wrap: wrap;
+}
+
+/* Gambar */
+.text-box-ziswaf img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    display: block;
+    margin: 90px 20px 20px 20px; /* ini yang bikin gambar turun */
+}
+
+/* Teks */
+.text-content {
+    flex: 1 1 300px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 768px) {
+    .text-box-ziswaf {
+        gap: 24px;
+        padding: 24px;
+        margin: -50px auto
+    }
+
+    .text-box-ziswaf img {
+        max-width: 320px;
+        margin-top: 10px; /* lebih kecil supaya nggak terlalu jauh */
+    }
+
+    .text-content {
+        font-size: 1rem;
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+    .text-box-ziswaf {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .text-box-ziswaf img {
+        max-width: 120px;
+        margin-top: 20px; /* turun tapi nggak kelewat */
+        margin-bottom: 16px; /* jarak ke teks */
+    }
+
+    .text-content {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
+
+/* === LOGO ZISWAF SECTION === */
+.text-box-logo-ziswaf {
+    margin-top: -110px;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    width: 90%;
+    margin: -110px auto auto auto;
+    border-radius: 8px;
+    text-align: justify;
+}
+
+/* Gambar */
+.text-box-logo-ziswaf img {
+    margin-left: -10px;
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Teks */
+.text-content {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #444;
+}
+
+
+/* ===== TABLET ===== */
+@media (max-width: 768px) {
+    .text-box-logo-ziswaf {
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .text-box-logo-ziswaf img {
+        width: 120px;
+    }
+
+    .text-content {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
+
+/* ===== MOBILE ===== */
+@media (max-width: 480px) {
+    .text-box-logo-ziswaf {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        padding: 20px;
+    }
+
+    .text-box-logo-ziswaf img {
+        width: 100px;
+    }
+
+    .text-content {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
+/* ===== CONTAINER ===== */
+.payment-wrappers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+
+/* ===== REKENING ===== */
+.rekening-box {
+    background: linear-gradient(135deg, #1d5f82, #1d5f82);
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 600px);
+    text-align: left;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.rekening-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.rekening-text {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+}
+
+.rekening-text p {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+    padding: 10px 0 10px;
+}
+
+.rekening-text small {
+    opacity: 0.9;
+    font-size: 16px;
+}
+
+.bank-logo-wrap {
+    margin-top: 10px;
+    background: white;
+    padding: 10px 10px 50px 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bank-logo {
+    height: 70px;
+    width: auto;
+    display: block;
+    max-width: 100%;
+    margin: 0 auto; /* ini yang bikin tengah horizontal */
+}
+
+.btn-copy {
+    margin-top: 16px;
+    background: white;
+    color: #1d5f82;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-copy:hover {
+    background: #f3f4ff;
+    transform: translateY(-1px);
+}
+
+.btn-copy:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ===== QRIS ===== */
+.qris-box {
+    background: linear-gradient(135deg, #1d5f82, #1d5f82);
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 600px);
+    text-align: left;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.qris-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.qris-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+}
+
+.qris-text p {
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.qris-text small {
+    opacity: 0.9;
+    font-size: 25px;
+}
+
+.qris-img-wrap {
+    background: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qris-img {
+    height: 200px;
+    width: auto;
+    display: block;
+    max-width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .rekening-text p,
+    .qris-text p {
+        font-size: 28px;
+    }
+    .rekening-row,
+    .qris-row {
+        gap: 12px;
+    }
+    .bank-logo {
+        height: 60px;
+    }
+    .qris-img {
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-wrappers {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .rekening-row,
+    .qris-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .bank-logo-wrap,
+    .qris-img-wrap {
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .bank-logo,
+    .qris-img {
+        height: 100px;
+    }
+
+    .rekening-text p,
+    .qris-text p {
+        font-size: 24px;
+    }
+
+    .btn-copy {
+        align-self: stretch;
+        text-align: center;
+    }
+}
