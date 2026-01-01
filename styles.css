@@ -828,3 +828,94 @@ footer {
     padding: 8px 14px;
   }
 }
+
+
+/* ===== DONASI CARD ===== */
+.donasi-card {
+  font-family: 'El Messiri', sans-serif;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 60%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  margin: -150px auto 20px auto;
+}
+
+/* KIRI */
+.donasi-left {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donasi-left img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* KANAN */
+.donasi-right {
+  flex: 1;
+  padding: 20px;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 25px;
+  margin-bottom: 16px;
+}
+
+.nominal h2 {
+  margin: 0;
+  color: #ff7a00;
+}
+
+.nominal span {
+  font-size: 14px;
+  color: #888;
+}
+
+.progress-wrapper {
+  margin: 20px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #ff7a00;
+  border-radius: 10px;
+}
+
+.btn-donasi {
+  width: 100%;
+  padding: 12px;
+  background: #ff7a00;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-donasi:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .donasi-card {
+    flex-direction: column;
+    margin: -20px auto;
+  }
+}
