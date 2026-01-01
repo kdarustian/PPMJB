@@ -73,7 +73,7 @@ nav {
 }
 
 nav a {
-    color: black; /* Warna teks hitam */
+    color: #1a2a75; /* Warna teks biru tua */
     text-decoration: none; /* Menghilangkan garis bawah pada link */
     font-size: 18px; /* Ukuran teks 16px */
     font-weight: 500; /* Ketebalan teks (sedang) */
@@ -215,27 +215,44 @@ footer {
 
 /* Text box content */
 .text-box {
-    display: flex; /* Menggunakan flexbox untuk menata gambar dan teks */
-    align-items: flex-start; /* Menjaga gambar dan teks tetap sejajar di atas */
-    gap: 40px; /* Jarak antara gambar dan teks */
-    width: 90%; /* Biar lebar konten nggak terlalu penuh */
-    margin: 20px auto 20px; /* Tengahin konten */
-    padding: 10px 40px; /* Jarak dari pinggir */
-    background-color: #f9f9f9; /* Warna latar belakang */
-    border-radius: 8px; /* Sudut melengkung */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan biar lebih cantik */
-    text-align: justify; /* Membuat teks dalam .text-box rata kiri */
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px 40px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: justify;
 }
 
-.text-box img {
-    padding: 80px 10px;
-    width: 350px; /* Atur lebar gambar sesuai kebutuhan */
-    height: auto; /* Menjaga rasio gambar */
-    object-fit: cover; /* Menjaga gambar tidak terdistorsi */
+/* penting: buang margin atas h2 */
+.text-content h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
 }
 
-.text-content {
-    flex: 1; /* Biar teks mengisi sisa ruang */
+/* paragraf pertama */
+.text-content p:first-of-type {
+    margin-top: 0;
+}
+
+/* gambar */
+.text-box-image {
+    width: 350px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin-top: 52px; 
+}
+
+.text-box-image2 {
+    width: 350px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 110px auto 20px;
 }
 
 /* Responsive design: jika layar lebih kecil dari 768px (tablet ke bawah) */
@@ -251,6 +268,14 @@ footer {
         width: 100%; /* Gambar jadi memenuhi lebar container */
         max-width: 300px; /* Batas maksimal lebar gambar */
         height: auto; /* Menjaga rasio gambar */
+        margin: 0px auto;
+    }
+
+    .text-box-image2 {
+        width: 100%; /* Gambar jadi memenuhi lebar container */
+        max-width: 300px; /* Batas maksimal lebar gambar */
+        height: auto; /* Menjaga rasio gambar */
+        margin: 0px auto;
     }
 
     .text-content {
@@ -267,6 +292,15 @@ footer {
     .text-box img {
         width: 80%; /* Gambar jadi lebih kecil di layar kecil */
         max-width: 250px;
+        margin: 0px auto;
+
+    }
+
+    .text-box-image2 {
+        width: 100%; /* Gambar jadi memenuhi lebar container */
+        max-width: 300px; /* Batas maksimal lebar gambar */
+        height: auto; /* Menjaga rasio gambar */
+        margin: 0px auto;
     }
 
     .text-content {
@@ -308,6 +342,7 @@ footer {
     font-size: 14px;
     font-weight: normal;
     line-height: 1.6;
+    text-align: justify;
 }
 
 /* Media Query untuk layar kecil */
@@ -386,7 +421,7 @@ footer {
     align-items: flex-start;
     gap: 40px;
     width: 90%;
-    margin: -50px 20px 20px 40px;
+    margin: -20px 20px 20px 40px;
     padding: 20px;
     border-radius: 8px;
     text-align: justify;
@@ -401,7 +436,7 @@ footer {
     object-fit: contain;
     flex-shrink: 0;
     display: block;
-    margin: 90px 20px 20px 20px; /* ini yang bikin gambar turun */
+    margin: 120px auto; /* ini yang bikin gambar turun */
 }
 
 /* Teks */
@@ -414,21 +449,25 @@ footer {
 
 /* ===== TABLET ===== */
 @media (max-width: 768px) {
-    .text-box-ziswaf {
-        gap: 24px;
-        padding: 24px;
-        margin: -50px auto
-    }
+  .text-box-ziswaf {
+    flex-direction: column; /* 🔥 INI KUNCI UTAMANYA */
+    gap: 24px;
+    padding: 24px;
+    margin: -50px auto 20px;
+  }
 
-    .text-box-ziswaf img {
-        max-width: 320px;
-        margin-top: 10px; /* lebih kecil supaya nggak terlalu jauh */
-    }
+  .text-box-ziswaf img {
+    max-width: 320px;
+    margin: 0 auto; /* biar tengah */
+    display: block;
+  }
 
-    .text-content {
-        font-size: 1rem;
-    }
+  .text-content {
+    font-size: 1rem;
+    text-align: justify; /* optional tapi cakep di mobile */
+  }
 }
+
 
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
@@ -441,8 +480,7 @@ footer {
 
     .text-box-ziswaf img {
         max-width: 120px;
-        margin-top: 20px; /* turun tapi nggak kelewat */
-        margin-bottom: 16px; /* jarak ke teks */
+        margin: 20px auto; /* turun tapi nggak kelewat */
     }
 
     .text-content {
@@ -724,4 +762,69 @@ footer {
         align-self: stretch;
         text-align: center;
     }
+}
+
+/* ===== ADMIN META ===== */
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 12px 0 20px;
+  font-size: 14px;
+  color: #6b7280;
+  flex-wrap: wrap;
+}
+
+/* item */
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f9fafb;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  transition: 0.2s ease;
+}
+
+/* hover */
+.meta-item:hover {
+  background: #f3f4f6;
+}
+
+/* teks */
+.meta-item {
+  font-weight: 500;
+  color: #374151;
+}
+
+/* ===== ICON OTOMATIS ===== */
+.meta-item::before {
+  font-family: "bootstrap-icons";
+  font-size: 15px;
+  margin-right: 6px;
+  color: #6b7280;
+}
+
+/* admin */
+.meta-item.admin::before {
+  content: "\f4da"; /* bi-person-badge */
+}
+
+/* tanggal */
+.meta-item.date::before {
+  content: "\f1f6"; /* bi-calendar-event */
+}
+
+/* 📱 MOBILE */
+@media (max-width: 480px) {
+  .article-meta {
+    gap: 8px;
+  }
+
+  .meta-item {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 8px 14px;
+  }
 }
